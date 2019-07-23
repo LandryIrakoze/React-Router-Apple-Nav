@@ -42,7 +42,7 @@ const NavWrapper = props => {
             </ul>
             <Route path={`/:category/:item`} render={(props) => {
                 navCategory.map(item => {
-                    return <SubNav {...props} category={item} />
+                    return <SubNav {...props} category={props.item} />
                 })
             }} />
         </div>
