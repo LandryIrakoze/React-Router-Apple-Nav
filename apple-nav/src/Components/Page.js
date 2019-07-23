@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 
-const NavWrapper = props => {
+const Page = props => {
 
     return (
         <div></div>
     )
 }
 
-export default NavWrapper;
+export default Page;
