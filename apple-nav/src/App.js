@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Route } from 'react-router-dom';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import NavWrapper from './Components/NavWrapper';
@@ -10,24 +9,27 @@ import SubNav from './Components/SubNav';
 import Page from './Components/Page';
 
 function App() {
+
   return (
     <>
-      <NavWrapper />
       <Route path="/" render={(props) => 
         <NavWrapper 
           {...props}/>} 
 
         />
-      <Route path="/:category" render={(props) => 
-        <Nav 
-          {...props}/>} 
-          
+      <Switch>
+        <Route path="/:category" render={(props) => 
+          <SubNav 
+            {...props}/>} 
+            
         />
-      <Route path="/:category/:product" render={(props) => 
-        <NavWrapper 
-          {...props}/>} 
-          
-        />
+        {/* <Route path="/:category/:product" render={(props) => 
+          <Page 
+            {...props}/>} 
+            
+        /> */}
+      </Switch>
+      
     </>
   );
 }
