@@ -8,10 +8,12 @@ import Nav from './Components/Nav';
 import SubNav from './Components/SubNav';
 import Page from './Components/Page';
 
+import { NavContainer } from './Styles/Styles';
+
 function App() {
 
   return (
-    <>
+    <NavContainer>
       <Route path="/" render={(props) => 
         <NavWrapper 
           {...props}/>} 
@@ -30,7 +32,7 @@ function App() {
         /> */}
       </Switch>
       
-    </>
+    </NavContainer>
   );
 }
 

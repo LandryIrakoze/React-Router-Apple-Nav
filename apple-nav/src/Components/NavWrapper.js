@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import data from '../Data/products';
 import SubNav from './SubNav';
+import { NavItem, Text } from '../Styles/Styles';
 
 const NavWrapper = props => {
     
@@ -10,42 +11,23 @@ const NavWrapper = props => {
     const [categories, setCategories] = useState(navCategory);
     console.log('cats', categories);
 
-    // <div>
-    //     {
-    //         navCategory.map(item => {
-    //             return <SubNav category={item}>
-    //         })
-    //     }
-    // </div>
-
     return (
-        <div>
-        {/* <ul>
-            {
-                navCategory.map(item => {  
-                    return (
-                        <div>
-                            <NavLink to={`/${item}`} activeClassName="activeNavButton"><li key={item}>{item}</li></NavLink>
-                            <Route path={`/${item}/:item`} render={(props) => { {...props} category={item}}}/>
-                        </div>
-                    )
-                })
-            }
-        </ul> */}
-        
-            <ul>
-                {
-                    navCategory.map(item => {  
-                        return <NavLink to={`/${item}`} activeClassName="activeNavButton"><li key={item}>{item}</li></NavLink>
-                    })
-                }
-            </ul>
+        <>
+            <NavItem>
+                <ul>
+                    {
+                        navCategory.map(item => {  
+                            return <NavLink to={`/${item}`} activeClassName="activeNavButton"><li key={item}><Text>{item}</Text></li></NavLink>
+                        })
+                    }
+                </ul>
+            </NavItem>
             <Route path={`/:category/:item`} render={(props) => {
                 navCategory.map(item => {
                     return <SubNav {...props} category={props.item} />
                 })
             }} />
-        </div>
+        </>
     )
 }
 
